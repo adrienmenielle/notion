@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@500&display=swap');
+
+            #coucou {
+                color: black;
+                font-family: 'Vollkorn', serif;
+                font-size: 5.9vw;
+                width: 100%;
+            }
+
+            #coucou .author {
+                text-align: right;
+                width: 100%;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="coucou">COUCOU LES ZOZOS !</div>
+    </body>
+    <script>
+        fetch("https://stoic-quotes.com/api/quote").then(function(response) {
+            return response.json();
+            }).then(function(data) {
+            console.log(data);
+            document.getElementById("coucou").innerHTML = data.text + "<br>";
+            document.getElementById("coucou").innerHTML += "<span class='author'>— " + data.author + "</span>";
+            }).catch(function() {
+            console.log("Booo");
+            });
+    </script>
+</html>
